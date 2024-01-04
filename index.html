@@ -43,6 +43,9 @@
     opacity: 60%;
 }
 
+.picker{
+    opacity: 60%;
+} 
 
 
 </style>
@@ -56,6 +59,7 @@
             <button type="button" class="btn bg-dark bt" onclick="applyStyle('bold')"><img class="images1" src="Resources/bold-xxl.png" alt=""></button>
             <button type="button" class="btn bg-dark bt" onclick="applyStyle('underline')"><img class="images2" src="Resources/format_underline_white_192x192.png" alt=""></button>
             <button type="button" class="btn bg-dark bt" onclick="applyStyle('italic')"><img class="images1" src="Resources/italic-xxl.png" alt=""></button>
+            <button type="button" class="btn bg-dark bt"><input type="color" id="fontColorPicker" class="picker"></button>
         </div>
       </div>
 
@@ -83,6 +87,13 @@
       redoStack = [];
       redoStack.push(document.getElementById('editor').innerHTML);
   }
+
+
+  //Font color change
+  document.getElementById('fontColorPicker').addEventListener('input', function () {
+       var color = this.value;
+       document.execCommand('foreColor', false, color);
+   });
 
 </script>
     
